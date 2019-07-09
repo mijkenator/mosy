@@ -14,6 +14,7 @@ defmodule Mosy.Application do
       supervisor(MosyWeb.Endpoint, []),
       # Start your own worker by calling: Mosy.Worker.start_link(arg1, arg2, arg3)
       # worker(Mosy.Worker, [arg1, arg2, arg3]),
+      Mosy.Scheduler
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

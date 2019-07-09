@@ -22,6 +22,30 @@ config :logger, :console,
   format: "$date $time $metadata[$level] $message\n",
   metadata: [:user_id, :module, :function, :pid]
 
+#config :libcluster,
+#  topologies: [
+#    example: [
+#      # The selected clustering strategy. Required.
+#      strategy: Cluster.Strategy.Epmd,
+#      # Configuration for the provided strategy. Optional.
+#      config: [hosts: [:"srv0@server1", :"srv0@phoenix"]],
+#      # The function to use for connecting nodes. The node
+#      # name will be appended to the argument list. Optional
+#      connect: {:net_kernel, :connect_node, []},
+#      # The function to use for disconnecting nodes. The node
+#      # name will be appended to the argument list. Optional
+#      disconnect: {:erlang, :disconnect_node, []},
+#      # The function to use for listing nodes.
+#      # This function must return a list of node names. Optional
+#      list_nodes: {:erlang, :nodes, [:connected]},
+#    ]
+#  ]
+
+config :mosy, Mosy.Scheduler,
+    jobs: [
+        {"*/1 * * * *", {Mosy.Monitoring, :get_mon_data, []}}
+    ]
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"

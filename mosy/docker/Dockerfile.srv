@@ -1,0 +1,8 @@
+FROM bitwalker/alpine-elixir:latest
+
+COPY start_srv.sh /opt/app/start_srv.sh
+COPY stat.sh /opt/app/stat.sh
+COPY .erlang /opt/app/.erlang
+
+ENTRYPOINT ["/bin/sh"]
+CMD ["/opt/app/start_srv.sh"]

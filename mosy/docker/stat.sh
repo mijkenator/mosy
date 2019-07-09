@@ -1,0 +1,15 @@
+#!/bin/bash
+hst=`hostname`
+echo "["
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"},"
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"},"
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"},"
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"},"
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"},"
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"},"
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"},"
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"},"
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"},"
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"},"
+echo "{\"cpu\":$((1 + RANDOM % 100)), \"memory\": $((1 + RANDOM % 100)), \"ioread\":$((1 + RANDOM % 100)), \"iowrite\": $((1 + RANDOM % 100)), \"process\": \"process$((1 + RANDOM % 20))\", \"host\":\"${hst}\"}"
+echo "]"

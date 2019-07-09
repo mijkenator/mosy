@@ -1,5 +1,6 @@
 defmodule Mosy.Monitoring do
     use Ecto.Schema
+
     require Logger
     import Ecto.Changeset
     import Ecto.Query
@@ -40,5 +41,20 @@ defmodule Mosy.Monitoring do
             where: u.inserted_at >= ^startd and u.inserted_at <= ^endd and u.host == ^host and u.process == ^proc,
             order_by: [desc: u.id]
         Mosy.Repo.all(query)
+    end
+    
+    def get_mon_data() do
+        {ls, _} = get_stats([:erlang.node()] ++ :erlang.nodes() ,"/opt/app/stat.sh")
+        ret = List.flatten(Enum.map(ls, fn x -> 
+            Poison.decode!(x, keys: :atoms!)
+        end))
+        Enum.each(ret, fn x ->
+            Mosy.Repo.insert(Kernel.struct(%Mosy.Monitoring{}, x))  
+        end)
+        Logger.debug "!!!!!!!!!! GMD #{inspect(ret)}"
+    end
+
+    def get_stats(nodes, cmd) do
+        ret = :rpc.multicall(nodes, :os, :cmd, [:erlang.binary_to_list(cmd)], 5000)
     end
 end

@@ -40,6 +40,10 @@ defmodule Mosy.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:plug_cowboy, "~> 1.0"},
+      {:distillery, "~> 2.0"},
+      #{:libcluster, "~> 3.1"},
+      {:quantum, "~> 2.3"},
+      {:timex, "~> 3.0"},
     ]
   end
 

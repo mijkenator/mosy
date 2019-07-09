@@ -1,0 +1,6 @@
+FROM bitwalker/alpine-elixir:latest
+
+COPY _build/prod/rel/mosy/releases/0.0.1/mosy.tar.gz /opt/app/mosy.tar.gz
+COPY docker/stat.sh /opt/app/stat.sh
+RUN cd /opt/app && tar xvf mosy.tar.gz
+
