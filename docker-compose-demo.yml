@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  phoenix:
+    image: ashimbel/u18dev:bld
+    environment:
+      PORT: 4000
+    hostname: phoenix
+    command: '/bin/sh -c "/opt/app/bin/mosy foreground"'
+    volumes:
+      - ../:/mkhmac
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./:/docker-entrypoint-initdb.d
+ 
+
+  editor:
+    image: ashimbel/u18dev:latest
+    command: '/bin/sh -c "while true; do sleep 2; done"'
+    volumes:
+      - ../:/mkhmac
+    depends_on:
+      - db
+  
+  server1:
+    image: ashimbel/u18dev:srv
+    hostname: server1
+    depends_on:
+      - phoenix
+  
+  server2:
+    hostname: server2
+    image: ashimbel/u18dev:srv
+    depends_on:
+      - phoenix
+
+volumes:
+  pgdata:
