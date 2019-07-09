@@ -9,6 +9,7 @@ Then configure your database in config/dev.exs and run:
 
     $ mix ecto.create
 mix deps.get
+mix ecto.migrate
 
 Start your Phoenix app with:
 

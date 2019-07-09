@@ -19,8 +19,8 @@ config :mosy, MosyWeb.Endpoint,
 
 # Configures Elixir's Logger
 config :logger, :console,
-  format: "$time $metadata[$level] $message\n",
-  metadata: [:user_id]
+  format: "$date $time $metadata[$level] $message\n",
+  metadata: [:user_id, :module, :function, :pid]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

@@ -7,7 +7,7 @@ config :mosy, MosyWeb.Endpoint,
   server: false
 
 # Print only warnings and errors during test
-config :logger, level: :warn
+config :logger, level: :debug
 
 # Configure your database
 config :mosy, Mosy.Repo,
@@ -15,5 +15,5 @@ config :mosy, Mosy.Repo,
   username: "postgres",
   password: "postgres",
   database: "mosy_test",
-  hostname: "localhost",
+  hostname: "db",
   pool: Ecto.Adapters.SQL.Sandbox
